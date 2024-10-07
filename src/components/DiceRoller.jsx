@@ -48,17 +48,15 @@ const DiceRoller = () => {
       </button>
       <div id="diceResults">
         <h2>Results:</h2>
-        <ul>
           {diceResults.map((result, index) => (
-            <li key={index}>
               <img
+                key ={index}
                   src={`/diceImages/${result}.png`}
                   alt={`Dice ${result}`}
                   style={{ width: '150px', margin: '5px', display: 'inline-block' }} 
                 />
-            </li>
           ))}
-        </ul>
+        
       </div>
     </div>
   );
