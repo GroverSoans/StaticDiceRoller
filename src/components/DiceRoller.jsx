@@ -10,7 +10,7 @@ const DiceRoller = () => {
     setLoading(true);
     for (let i = 0; i < numOfDice; i++) {
       try {
-        const response = await fetch('serverdiceroller-test.azurewebsites.net/api/rollDice'); // Update with your backend URL
+        const response = await fetch('https://serverdiceroller-test.azurewebsites.net/api/rollDice'); // Update with your backend URL
         if (!response.ok) {
           throw new Error(`Error: ${response.statusText}`);
         }
