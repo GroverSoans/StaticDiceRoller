@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 const DiceRoller = () => {
   const [numOfDice, setNumOfDice] = useState(1);
   const [diceResults, setDiceResults] = useState([]);
-  const [loading, setLoading] = useState(false);
+
 
   const rollDice = async () => {
     const results = [];
-    setLoading(true);
+
     for (let i = 0; i < numOfDice; i++) {
       try {
         const response = await fetch('https://serverdiceroller-test.azurewebsites.net/api/rollDice'); // Update with your backend URL
@@ -22,7 +22,6 @@ const DiceRoller = () => {
       }
     }
     setDiceResults(results);
-    setLoading(false);
   };
 
   const handleDiceInputChange = (e) => {
@@ -44,8 +43,7 @@ const DiceRoller = () => {
         onChange={handleDiceInputChange}
         min="1"
       />
-      <button onClick={rollDice} disabled={loading}>
-        {loading ? 'Rolling...' : 'Roll Dice'}
+      <button onClick={rollDice}>
       </button>
       <div id="diceResults">
         <h2>Results:</h2>
@@ -53,6 +51,11 @@ const DiceRoller = () => {
           {diceResults.map((result, index) => (
             <li key={index}>
               Dice {index + 1}: {result}
+              <img
+                  src={`/diceImages/${result}.png`} // Change the path if needed
+                  alt={`Dice ${result}`}
+                  style={{ width: '50px', height: '50px' }} // Adjust size as needed
+                />
             </li>
           ))}
         </ul>
