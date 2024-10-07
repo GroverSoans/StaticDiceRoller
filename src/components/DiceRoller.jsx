@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './DiceRoller.css'
 
 const DiceRoller = () => {
   const [numOfDice, setNumOfDice] = useState(1);
@@ -50,7 +51,6 @@ const DiceRoller = () => {
         <ul>
           {diceResults.map((result, index) => (
             <li key={index}>
-              Dice {index + 1}: {result}
               <img
                   src={`/diceImages/${result}.png`}
                   alt={`Dice ${result}`}
@@ -59,8 +59,6 @@ const DiceRoller = () => {
             </li>
           ))}
         </ul>
-      </div>
-      <div id="diceImages">
       </div>
     </div>
   );
