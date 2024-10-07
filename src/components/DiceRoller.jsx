@@ -43,7 +43,7 @@ const DiceRoller = () => {
         onChange={handleDiceInputChange}
         min="1"
       />
-      <button onClick={rollDice}>
+      <button onClick={rollDice}> Roll Dice
       </button>
       <div id="diceResults">
         <h2>Results:</h2>
@@ -52,9 +52,9 @@ const DiceRoller = () => {
             <li key={index}>
               Dice {index + 1}: {result}
               <img
-                  src={`/diceImages/${result}.png`} // Change the path if needed
+                  src={`/diceImages/${result}.png`}
                   alt={`Dice ${result}`}
-                  style={{ width: '50px', height: '50px' }} // Adjust size as needed
+                  style={{ width: '150px', margin: '5px', display: 'inline-block' }} 
                 />
             </li>
           ))}
