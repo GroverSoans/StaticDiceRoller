@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './DiceRoller.css'
 
 const DiceRoller = () => {
   const [numOfDice, setNumOfDice] = useState(1);
   const [diceResults, setDiceResults] = useState([]);
+  const [selectedServer, setSelectedServer] = useState("node"); 
+  const serverURLs = {
+    node: 'https://serverdiceroller-test.azurewebsites.net/api/rollDice',
+    go: 'https://gowebserver.wonderfulbay-ea07f76e.eastus.azurecontainerapps.io/api/rollDice'
+
+  }
 
 
   const rollDice = async () => {
     const results = [];
+    const url = serverURLs[selectedServer];
 
     for (let i = 0; i < numOfDice; i++) {
       try {
-        const response = await fetch('https://serverdiceroller-test.azurewebsites.net/api/rollDice'); // Update with your backend URL
+        const response = await fetch(url); 
         if (!response.ok) {
           throw new Error(`Error: ${response.statusText}`);
         }
@@ -29,9 +36,18 @@ const DiceRoller = () => {
     setNumOfDice(Number(e.target.value));
   };
 
+  const handleServerChange = (e) => {
+    setSelectedServer(e.target.value);
+  };
+
   return (
     <div id="container">
       <h1>Dice Roller</h1>
+      <label>Select Server</label>
+      <select value={selectedServer} onChange={handleServerChange}>
+        <option value="go">Go Docker Server</option>
+        <option value="node">Node.js Server</option>
+      </select>
       <p>
         Welcome to the Dice Roller! Click the button below to roll as many
         6-sided dice as you please. The results will be displayed below.

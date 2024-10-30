@@ -4,10 +4,16 @@
     font-size: 2rem;
     font-weight: bold;
 }
+label {
+    padding: 10px 15px;
+}
+select {
+    padding: 10px 15px;
+}
 
 button {
     font-size: 1.5rem;
-    padding: 10px 15px; /* Fixed incorrect padding syntax: commas replaced by spaces */
+    padding: 10px 15px; 
     border-radius: 10px;
     border: none;
     background-color: hsl(210, 100%, 50%);
@@ -25,7 +31,7 @@ button:active {
     background-color: hsl(210, 100%, 70%);
 }
 
-/* Input Field Styles */
+
 input {
     font-size: 2rem;
     width: 150px;
@@ -33,7 +39,7 @@ input {
     font-weight: bold;
 }
 
-/* Dice Result and Images */
+
 #diceResult {
     margin: 25px;
 }
