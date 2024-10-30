@@ -16,6 +16,8 @@ const DiceRoller = () => {
     const results = [];
     const url = serverURLs[selectedServer];
 
+    console.log(`Fetching from: ${url}`);
+
     for (let i = 0; i < numOfDice; i++) {
       try {
         const response = await fetch(url); 
